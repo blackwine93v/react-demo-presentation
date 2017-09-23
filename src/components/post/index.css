@@ -1,0 +1,17 @@
+.post {
+  display: block;
+  border: solid 1px #c2c2c2;
+  border-radius: 2px;
+  margin: 10px 0px;
+  text-align: left;
+  padding: 20px;
+}
+
+.post .title {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.post .content {
+  padding: 10px;
+}

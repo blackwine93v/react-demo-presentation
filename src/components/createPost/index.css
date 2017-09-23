@@ -1,0 +1,12 @@
+.create-post-form {
+  text-align: left;
+}
+
+.create-post-form input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.create-post-form textarea {
+  width: 100%;
+}

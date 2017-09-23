@@ -1,0 +1,11 @@
+.main-layout {
+  width: 800px;
+  height: 100%;
+  margin: auto;
+}
+
+.main-layout .content {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
