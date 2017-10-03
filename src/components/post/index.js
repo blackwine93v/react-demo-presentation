@@ -8,6 +8,9 @@ export default class extends Component {
       <div className="post">
         <span className="title">{this.props.post.title}</span>
         <span className="content">{this.props.post.content}</span>
+        <button onClick={this.props.deletePost.bind(this, this.props.post.id)}>
+          Delete
+        </button>
       </div>
     );
   }

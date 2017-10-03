@@ -1,46 +1,45 @@
 import React, { Component } from "react";
-import postService from "../../services/posts.js";
 import "./index.css";
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.submit = this.submit.bind(this);
-    this.createPost = this.createPost.bind(this);
+    this.addPost = this.addPost.bind(this);
+    this.saveInput = this.saveInput.bind(this);
   }
 
-  submit(e) {
+  addPost(e) {
     e.preventDefault();
-    var title = e.target.title.value;
-    var content = e.target.content.value;
-
-    if (title && content) {
-      this.createPost(title, content);
-    }
+    this.props.addPost({
+      title: this.state.title,
+      content: this.state.content
+    });
   }
 
-  createPost(title, content) {
-    postService
-      .createPost(title, content)
-      .then(function(res) {
-        alert("Successful!");
-      })
-      .catch(function(err) {
-        debugger;
-      });
+  saveInput(fieldName, e) {
+    var data = {};
+    data[fieldName] = (e.target && e.target.value) || "";
+    this.setState(data);
   }
 
   render() {
     return (
-      <form className="create-post-form" onSubmit={this.submit}>
+      <form className="create-post-form" onSubmit={this.addPost}>
         Post title:<br />
-        <input type="text" name="title" />
+        <input
+          type="text"
+          name="title"
+          onChange={this.saveInput.bind(this, "title")}
+        />
         <br />
         Content:<br />
-        <textarea name="content" />
+        <textarea
+          name="content"
+          onChange={this.saveInput.bind(this, "content")}
+        />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit">Add</button>
       </form>
     );
   }
