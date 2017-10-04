@@ -17,10 +17,9 @@ export default class extends Component {
     });
   }
 
-  saveInput(fieldName, e) {
-    var data = {};
-    data[fieldName] = (e.target && e.target.value) || "";
-    this.setState(data);
+  saveInput(e) {
+    if (!e.target) return;
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -30,13 +29,15 @@ export default class extends Component {
         <input
           type="text"
           name="title"
-          onChange={this.saveInput.bind(this, "title")}
+          value={this.state.title}
+          onChange={this.saveInput}
         />
         <br />
         Content:<br />
         <textarea
           name="content"
-          onChange={this.saveInput.bind(this, "content")}
+          value={this.state.content}
+          onChange={this.saveInput}
         />
         <br />
         <button type="submit">Add</button>

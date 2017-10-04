@@ -19,14 +19,14 @@ class App extends Component {
       title: data.title,
       content: data.content
     };
-    let postData = this.state.posts;
+    let postData = [...this.state.posts];
     postData.push(newPost);
     this.setState({ posts: postData });
   }
 
   deletePost(postId) {
     if (!postId) return;
-    let postData = this.state.posts;
+    let postData = [...this.state.posts];
     _.remove(postData, post => post.id === postId);
     this.setState({ posts: postData });
   }
