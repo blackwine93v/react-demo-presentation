@@ -31,7 +31,7 @@ export default class extends Component {
     return (
       <div>
         {this.state.posts.map(function(post, index) {
-          return <Post key={index} post={post} />;
+          return <Post key={post.id} post={post} />;
         })}
       </div>
     );
