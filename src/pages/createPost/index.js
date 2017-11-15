@@ -5,7 +5,7 @@ export default class extends Component {
   render() {
     return (
       <div className="create-page">
-        <CreatePost />
+        <CreatePost addPost={this.props.addPost} />
       </div>
     );
   }
