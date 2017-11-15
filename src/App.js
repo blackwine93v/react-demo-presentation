@@ -5,7 +5,13 @@ import CreatePostPage from "./pages/createPost/index.js";
 import Header from "./components/header/index.js";
 
 //import react-router
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 import _ from "lodash";
 import "./App.css";
@@ -64,7 +70,7 @@ class App extends Component {
               <Header />
               <Switch>
                 {/* <Route path="/" render={() => <h1>DEMO APP</h1>} /> */}
-                {/* <Route exact path="/" render={() => <h1>DEMO APP</h1>} /> */}
+                <Route exact path="/" render={() => <Redirect to="/posts" />} />
                 <Route
                   path="/posts"
                   render={() => (
