@@ -62,6 +62,8 @@ class App extends Component {
           <Router>
             <div>
               <Header />
+              <Route path="/" render={() => <h1>DEMO APP</h1>} />
+              {/* <Route exact path="/" render={() => <h1>DEMO APP</h1>} /> */}
               <Route
                 path="/posts"
                 render={() => (
