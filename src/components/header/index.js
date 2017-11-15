@@ -8,6 +8,7 @@ export default class extends Component {
       <div className="header">
         <Link to="/posts">Posts</Link>
         <Link to="/create">New Post</Link>
+        <Link to="/info">Route Info</Link>
       </div>
     );
   }

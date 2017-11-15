@@ -4,6 +4,8 @@ import ListPostPage from "./pages/listPost/index.js";
 import CreatePostPage from "./pages/createPost/index.js";
 import Header from "./components/header/index.js";
 
+import RouteInfo from "./components/routeInfo/index.js";
+
 //import react-router
 import {
   BrowserRouter as Router,
@@ -84,6 +86,8 @@ class App extends Component {
                   path="/create"
                   render={() => <CreatePostPage addPost={this.addPost} />}
                 />
+
+                <Route path="/info" component={RouteInfo} />
 
                 <Route path="*" render={() => <h1>Not match 404</h1>} />
               </Switch>
