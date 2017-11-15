@@ -3,6 +3,9 @@ import MainLayout from "./layouts/main/MainLayout.js";
 import ListPostPage from "./pages/listPost/index.js";
 import CreatePostPage from "./pages/createPost/index.js";
 
+//import react-router
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import _ from "lodash";
 import "./App.css";
 
@@ -55,11 +58,23 @@ class App extends Component {
     return (
       <div className="App">
         <MainLayout>
-          <ListPostPage
-            allPost={this.state.allPost}
-            removePost={this.removePost}
-          />
-          <CreatePostPage addPost={this.addPost} />
+          <Router>
+            <div>
+              <Route
+                path="/posts"
+                render={() => (
+                  <ListPostPage
+                    allPost={this.state.allPost}
+                    removePost={this.removePost}
+                  />
+                )}
+              />
+              <Route
+                path="/create"
+                render={() => <CreatePostPage addPost={this.addPost} />}
+              />
+            </div>
+          </Router>
         </MainLayout>
       </div>
     );
