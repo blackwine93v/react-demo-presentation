@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MainLayout from "./layouts/main/MainLayout.js";
 import ListPostPage from "./pages/listPost/index.js";
 import CreatePostPage from "./pages/createPost/index.js";
+import Header from "./components/header/index.js";
 
 //import react-router
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -60,6 +61,7 @@ class App extends Component {
         <MainLayout>
           <Router>
             <div>
+              <Header />
               <Route
                 path="/posts"
                 render={() => (

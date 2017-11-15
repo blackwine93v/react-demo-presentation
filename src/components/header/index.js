@@ -6,8 +6,8 @@ export default class extends Component {
   render() {
     return (
       <div className="header">
-        <Link to="/">Posts</Link>
-        <Link to="/newpost">New Post</Link>
+        <Link to="/posts">Posts</Link>
+        <Link to="/create">New Post</Link>
       </div>
     );
   }
