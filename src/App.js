@@ -5,7 +5,7 @@ import CreatePostPage from "./pages/createPost/index.js";
 import Header from "./components/header/index.js";
 
 //import react-router
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import _ from "lodash";
 import "./App.css";
@@ -62,21 +62,25 @@ class App extends Component {
           <Router>
             <div>
               <Header />
-              <Route path="/" render={() => <h1>DEMO APP</h1>} />
-              {/* <Route exact path="/" render={() => <h1>DEMO APP</h1>} /> */}
-              <Route
-                path="/posts"
-                render={() => (
-                  <ListPostPage
-                    allPost={this.state.allPost}
-                    removePost={this.removePost}
-                  />
-                )}
-              />
-              <Route
-                path="/create"
-                render={() => <CreatePostPage addPost={this.addPost} />}
-              />
+              <Switch>
+                {/* <Route path="/" render={() => <h1>DEMO APP</h1>} /> */}
+                {/* <Route exact path="/" render={() => <h1>DEMO APP</h1>} /> */}
+                <Route
+                  path="/posts"
+                  render={() => (
+                    <ListPostPage
+                      allPost={this.state.allPost}
+                      removePost={this.removePost}
+                    />
+                  )}
+                />
+                <Route
+                  path="/create"
+                  render={() => <CreatePostPage addPost={this.addPost} />}
+                />
+
+                <Route path="*" render={() => <h1>Not match 404</h1>} />
+              </Switch>
             </div>
           </Router>
         </MainLayout>
