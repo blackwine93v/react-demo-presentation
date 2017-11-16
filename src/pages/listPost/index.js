@@ -8,10 +8,14 @@ class ListPostPage extends Component {
   render() {
     return (
       <div className="list-post-page">
-        <ListPost allPost={[]} removePost={{}} />
+        <ListPost allPost={this.props.posts} />
       </div>
     );
   }
 }
 
-export default connect()(ListPostPage);
+const mapStateToProps = reduxState => {
+  return { posts: reduxState };
+  //access via this.props.posts
+};
+export default connect(mapStateToProps)(ListPostPage);
