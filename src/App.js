@@ -5,7 +5,8 @@ import CreatePostPage from "./pages/createPost/index.js";
 
 import _ from "lodash";
 import "./App.css";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import logger from "redux-logger";
 
 function generateID() {
   return _.uniqueId("POST_");
@@ -63,13 +64,7 @@ function reducer(state = allPost, action) {
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
-let store = createStore(reducer);
-
-// You can use subscribe() to update the UI in response to state changes.
-// Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
-// However it can also be handy to persist the current state in the localStorage.
-
-store.subscribe(() => console.log(store.getState()));
+let store = createStore(reducer, applyMiddleware(logger));
 
 // The only way to mutate the internal state is to dispatch an action.
 // The actions can be serialized, logged or stored and later replayed.
