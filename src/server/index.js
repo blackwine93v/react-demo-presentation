@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 var bodyParser = require("body-parser");
+import { renderToString } from "react-dom/server";
+import React from "react";
+import App from "./../App.js";
 
 var ID = 1;
 function generateID() {
@@ -36,6 +39,12 @@ app.use(
     extended: true
   })
 );
+
+app.get("/", function(req, res) {
+  let html = renderToString(<App />);
+  console.log(html);
+  res.send(`<html><body>${html}</body></html>`);
+});
 
 app.get("/posts", function(req, res) {
   res.json(data.posts);

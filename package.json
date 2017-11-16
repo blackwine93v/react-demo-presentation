@@ -4,20 +4,32 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-css-modules-transform": "^1.2.8",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
+    "css-loader": "^0.28.7",
     "express": "^4.15.4",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.13"
+    "react-scripts": "1.0.13",
+    "webpack": "^2.2.0-rc.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server": "node src/server/index.js"
+    "server": "BABEL_ENV=server  babel-node  src/server/index.js",
+    "build:server":
+      "BABEL_ENV=server babel src/server/index.js --out-dir ./build/server"
   }
 }
