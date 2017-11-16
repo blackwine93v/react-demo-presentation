@@ -65,6 +65,12 @@ function reducer(state = allPost, action) {
 // Its API is { subscribe, dispatch, getState }.
 let store = createStore(reducer);
 
+// You can use subscribe() to update the UI in response to state changes.
+// Normally you'd use a view binding library (e.g. React Redux) rather than subscribe() directly.
+// However it can also be handy to persist the current state in the localStorage.
+
+store.subscribe(() => console.log(store.getState()));
+
 class App extends Component {
   constructor() {
     super();
