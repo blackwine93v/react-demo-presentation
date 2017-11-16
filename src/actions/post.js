@@ -17,4 +17,11 @@ const createPost = (title, content) => {
   };
 };
 
-export { getAllPost, createPost };
+const delelePost = postId => {
+  return {
+    type: "DELETE",
+    payload: postId
+  };
+};
+
+export { getAllPost, createPost, delelePost };
