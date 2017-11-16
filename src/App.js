@@ -12,23 +12,6 @@ class App extends Component {
     this.state = { allPost: allPost };
   }
 
-  addPost = (title, content) => {
-    let newPost = {
-      id: generateID(),
-      title,
-      content
-    };
-    let allPost = [...this.state.allPost];
-    allPost.push(newPost);
-    this.setState({ allPost: allPost });
-  };
-
-  removePost = postID => {
-    let allPost = [...this.state.allPost];
-    _.remove(allPost, post => post.id === postID);
-    this.setState({ allPost: allPost });
-  };
-
   render() {
     return (
       <div className="App">
