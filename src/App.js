@@ -7,20 +7,12 @@ import _ from "lodash";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = { allPost: allPost };
-  }
-
   render() {
     return (
       <div className="App">
         <MainLayout>
-          <ListPostPage
-            allPost={this.state.allPost}
-            removePost={this.removePost}
-          />
-          <CreatePostPage addPost={this.addPost} />
+          <ListPostPage />
+          <CreatePostPage />
         </MainLayout>
       </div>
     );
