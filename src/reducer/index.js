@@ -35,6 +35,9 @@ let allPost = [
  * project.
  */
 function reducer(state = allPost, action) {
+  //clone new state
+  let newState = [...state];
+
   switch (action.type) {
     case "CREATE":
       let newPost = {
@@ -43,12 +46,16 @@ function reducer(state = allPost, action) {
         content: action.payload.content
       };
 
-      let newState = [...state];
       newState.push(newPost);
       return newState;
 
     case "GET_ALL":
       return state;
+
+    case "DELETE":
+      _.remove(newState, post => post.id === action.payload);
+      return newState;
+
     default:
       return state;
   }
