@@ -42,7 +42,23 @@ let allPost = [
  * project.
  */
 function reducer(state = allPost, action) {
-  return state;
+  switch (action.type) {
+    case "CREATE":
+      let newPost = {
+        id: generateID(),
+        title: action.payload.title,
+        content: action.payload.content
+      };
+
+      let newState = [...state];
+      newState.push(newPost);
+      return newState;
+
+    case "GET_ALL":
+      return state;
+    default:
+      return state;
+  }
 }
 
 // Create a Redux store holding the state of your app.
