@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
         `<title>Server side rendering</title>`
       );
 
-      console.log(html);
+      res.send(html);
     }
   );
 });
