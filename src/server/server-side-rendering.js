@@ -19,7 +19,17 @@ app.get("/", (req, res) => {
 
       let appString = renderToString(<App />);
 
-      console.log(appString);
+      html = html.replace(
+        `<div id="root"></div>`,
+        `<div id="root">${appString}</div>`
+      );
+
+      html = html.replace(
+        `<title>React App</title>`,
+        `<title>Server side rendering</title>`
+      );
+
+      console.log(html);
     }
   );
 });
