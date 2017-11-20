@@ -11,7 +11,13 @@ const React = require("react");
 app.use("/static", express.static("build/static"));
 
 app.get("/", (req, res) => {
-  res.send("From server");
+  fs.readFile(
+    path.resolve(__dirname, "../../build/index.html"),
+    "utf8",
+    (er, html) => {
+      console.log(html);
+    }
+  );
 });
 
 app.listen(3001, () => {
