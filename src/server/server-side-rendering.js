@@ -15,7 +15,11 @@ app.get("/", (req, res) => {
     path.resolve(__dirname, "../../build/index.html"),
     "utf8",
     (er, html) => {
-      console.log(html);
+      if (er) return res.send(er.message);
+
+      let appString = renderToString(<App />);
+
+      console.log(appString);
     }
   );
 });
