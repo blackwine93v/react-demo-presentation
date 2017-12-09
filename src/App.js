@@ -8,30 +8,23 @@ import _ from "lodash";
 import "./App.css";
 
 //import react-router
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <MainLayout>
-          <Router>
-            <div>
-              <Header />
-              <Switch>
-                <Route exact path="/" render={() => <Redirect to="/posts" />} />
-                <Route path="/posts" component={ListPostPage} />
-                <Route path="/newpost" component={CreatePostPage} />
+          <div>
+            <Header />
+            <Switch>
+              <Route exact path="/" render={() => <Redirect to="/posts" />} />
+              <Route path="/posts" component={ListPostPage} />
+              <Route path="/newpost" component={CreatePostPage} />
 
-                <Route path="*" render={() => <h1>Not match 404</h1>} />
-              </Switch>
-            </div>
-          </Router>
+              <Route path="*" render={() => <h1>Not match 404</h1>} />
+            </Switch>
+          </div>
         </MainLayout>
       </div>
     );

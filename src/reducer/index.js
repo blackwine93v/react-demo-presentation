@@ -34,7 +34,13 @@ let allPost = [
  * follows a different convention (such as function maps) if it makes sense for your
  * project.
  */
-function reducer(state = allPost, action) {
+let initialState =
+  typeof window !== "undefined" &&
+  typeof window.__PRELOADED_STATE__ !== "undefined"
+    ? window.__PRELOADED_STATE__
+    : allPost;
+
+function reducer(state = initialState, action) {
   //clone new state
   let newState = [...state];
 
