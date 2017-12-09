@@ -22,7 +22,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "server": "node src/server/index.js",
-    "ssr": "BABEL_ENV=development babel-node src/server/server-side-rendering.js --presets es2015,stage-0,react"
+    "ssr":
+      "npm run build && BABEL_ENV=development babel-node src/server/server-side-rendering.js --presets es2015,stage-0,react"
   },
   "devDependencies": {
     "redux-devtools": "^3.4.1",
